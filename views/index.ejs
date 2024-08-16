@@ -1,0 +1,13 @@
+<html lang="en">
+  <%- include("./partials/head.ejs") %>
+
+  <body>
+    <div class="products">
+      <% if (products.length > 0) { %> <% products.forEach(product => { %> <%-
+      include('./partials/_product', { product: product }) %> <% }) %> <% } else
+      { %>
+      <p>There are no items to display...</p>
+      <% } %>
+    </div>
+  </body>
+</html>

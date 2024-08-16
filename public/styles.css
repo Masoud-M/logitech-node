@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100dvh;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.product-card {
+  max-width: 224px;
+  display: flex;
+  flex-direction: column;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+  list-style-type: none;
+  padding-inline-start: 0;
+
+  li {
+    aspect-ratio: 1 / 1;
+    max-width: 20px;
+    flex: 1;
+
+    input {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      border-radius: 100%;
+      border: solid 1px #2f3132;
+      appearance: none;
+    }
+  }
+
+  .white {
+    background-color: white;
+  }
+
+  .gray {
+    background-color: gray;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .graphite {
+    background-color: #393b3a;
+  }
+
+  .off-white {
+    background-color: #efefef;
+  }
+
+  .rose {
+    background-color: #eecdc8;
+  }
+
+  .pale-gray {
+    background-color: #ebedef;
+  }
+
+  :checked {
+    border: solid 2px black;
+  }
+}
+
+.product-image {
+  background-color: #f2f2f2;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.product-image a img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  object-fit: contain;
+}
+
+.info {
+  margin-bottom: 15px;
+}
+.info p {
+  font-weight: 300;
+  font-size: 14px;
+}
+.info .product-link {
+  text-decoration: none;
+  color: black;
+}
+
+.info h1 {
+  margin-top: 2px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.price-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.price {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.updated {
+  font-weight: 700;
+  color: #2f3132;
+}
+.standard {
+  font-weight: 300;
+  text-decoration: line-through;
+  color: #697172;
+}
+.on-sale {
+  background-color: #814efa;
+  color: white;
+  font-size: 14px;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.discount {
+  font-weight: 700;
+  color: #106604;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1;
+  margin: 0 -1px -1px 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1;
+}
