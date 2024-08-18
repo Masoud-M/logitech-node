@@ -10,9 +10,11 @@ const app = express();
 const dbURI =
   "mongodb+srv://notadmin:37UiVr0Qh59l0lA5@cluster0.1s00v.mongodb.net/logitech?retryWrites=true&w=majority&appName=Cluster0";
 
+const port = process.env.PORT || 8080;
+
 mongoose
   .connect(dbURI)
-  .then((result) => app.listen(3000))
+  .then((result) => app.listen(port))
   .catch((err) => console.log(err));
 
 // register view engine
