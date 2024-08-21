@@ -48,8 +48,10 @@
         new price is $<%= newPrice %>, you save <%= discountPercentage %>%.
       </span>
 
-      <span aria-hidden="true" class="updated">$<%= newPrice %></span>
-      <span aria-hidden="true" class="standard">$<%= product.price %> </span>
+      <div class="price-details">
+        <span aria-hidden="true" class="updated">$<%= newPrice %></span>
+        <span aria-hidden="true" class="standard">$<%= product.price %> </span>
+      </div>
       <span aria-hidden="true" class="type on-sale">SALE</span>
       <% } %>
     </div>

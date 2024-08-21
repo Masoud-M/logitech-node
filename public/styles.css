@@ -1,5 +1,17 @@
+:root {
+  --clr-primary: black;
+  --clr-secondary: #2f3132;
+  --clr-disabled: #697172;
+  --clr-danger: #106604;
+
+  --fs-300: 0.875rem;
+  --fs-400: 1rem;
+  --fs-500: 1.125rem;
+}
+
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -12,20 +24,34 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  row-gap: 4rem;
+  column-gap: 1rem;
+  padding: 1rem;
 }
 
 .product-card {
-  max-width: 224px;
+  max-width: 30rem;
   display: flex;
   flex-direction: column;
+}
+
+.product-image {
+  background-color: #f2f2f2;
+  padding: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.product-image a img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  object-fit: contain;
 }
 
 .options {
   display: flex;
   flex-direction: row;
   gap: 15px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   list-style-type: none;
   padding-inline-start: 0;
 
@@ -76,67 +102,69 @@ body {
   }
 }
 
-.product-image {
-  background-color: #f2f2f2;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-.product-image a img {
-  aspect-ratio: 1/1;
-  width: 100%;
-  object-fit: contain;
-}
-
 .info {
-  margin-bottom: 15px;
+  margin-bottom: 0.937rem;
 }
-.info p {
+
+.info .category {
   font-weight: 300;
-  font-size: 14px;
+  font-size: var(--fs-300);
+  margin-bottom: 0.125rem;
 }
+
 .info .product-link {
   text-decoration: none;
-  color: black;
+  color: var(--clr-primary);
 }
 
-.info h1 {
-  margin-top: 2px;
+.info .title {
   font-weight: 700;
-  font-size: 18px;
+  font-size: var(--fs-500);
 }
 
 .price-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
+
 .price {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: var(--fs-500);
+  gap: 0.3rem;
 }
+
+.price-details {
+  display: flex;
+  flex-direction: row;
+  gap: 0.6rem;
+}
+
 .updated {
   font-weight: 700;
-  color: #2f3132;
+  color: var(--clr-secondary);
 }
+
 .standard {
   font-weight: 300;
   text-decoration: line-through;
-  color: #697172;
+  color: var(--clr-disabled);
 }
+
 .on-sale {
   background-color: #814efa;
   color: white;
-  font-size: 14px;
+  font-size: var(--fs-300);
   padding: 7px;
   border-radius: 3px;
+  margin-bottom: 0.3rem;
 }
 
 .discount {
   font-weight: 700;
-  color: #106604;
+  color: var(--clr-danger);
+  font-size: var(--fs-500);
 }
 
 .sr-only {
@@ -149,4 +177,10 @@ body {
   padding: 0;
   position: absolute;
   width: 1;
+}
+
+@media only screen and (min-width: 31rem) {
+  .product-card {
+    max-width: 14rem;
+  }
 }
