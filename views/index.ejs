@@ -1,17 +1,18 @@
 <html lang="en">
-  <%- include("./partials/head.ejs") %>
+<%- include("./partials/head.ejs") %>
 
-  <body>
-    <main>
-      <section class="products" aria-label="best selling products">
-        <ul class="products-list">
-          <% if (products.length > 0) { %> <% products.forEach(product => { %>
-          <%- include('./partials/_product', { product: product }) %> <% }) %>
-          <% } else { %>
-          <p>There are no items to display...</p>
-          <% } %>
-        </ul>
-      </section>
-    </main>
-  </body>
+<body>
+  <main>
+    <section class="container" aria-label="best selling products">
+      <ul class="products-list">
+        <% if (products.length > 0) { %> <% products.forEach(product => { %>
+        <%- include('./partials/_product', { product: product }) %> <% }) %>
+        <% } else { %>
+        <p>There are no items to display...</p>
+        <% } %>
+      </ul>
+    </section>
+  </main>
+</body>
+
 </html>

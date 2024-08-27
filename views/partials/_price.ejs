@@ -2,22 +2,18 @@
 ((product.discount / product.price) * 100).toFixed(); %>
 
 
-<div role="text" class="price-wrapper" aria-label="Product price">
-  <div class="price">
-    <!-- is on sale -->
-    <% if (product.on_sale) { %>
-
-    <div class="price-details">
-      <span aria-hidden="true" class="updated">$<%= newPrice %></span>
-      <span aria-hidden="true" class="standard">$<%= product.price %>
-      </span>
-    </div>
-
-    <% } %>
-  </div>
-
+<div role="text" class="price" aria-label="Product price">
+  <!-- is on sale -->
   <% if (product.on_sale) { %>
-  <% } if (!product.on_sale) { %>
+  <span class="sr-only">
+    This item is listed for $<%=newPrice %>
+  </span>
+  <div class="price-details">
+    <span aria-hidden="true" class="updated">$<%= newPrice %></span>
+    <span aria-hidden="true" class="standard">$<%= product.price %>
+    </span>
+  </div>
+  <% } else { %>
   <span class="sr-only">
     This item is listed for $<%=product.price %>
   </span>

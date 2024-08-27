@@ -1,13 +1,15 @@
-<li aria-label="<%=product.name%>">
+<li class="product" aria-label="<%=product.name%>">
   <article class="product-card" aria-label="<%=product.name%>">
     <%- include("./_image", {product:product}) %>
-    <% if (product.colors.length > 0) { %>
-    <%- include("./_colors", {product:product}) %>
-    <% } %>
-    <%- include("./_info", {product:product}) %>
-    <div class="two-columns">
-      <%- include("./_price", {product:product}) %>
-      <%- include("./_buy", {product:product}) %>
+    <div class="text-container">
+      <% if (product.colors.length > 0) { %>
+      <%- include("./_colors", {product:product}) %>
+      <% } %>
+      <%- include("./_info", {product:product}) %>
+      <div class="cta">
+        <%- include("./_price", {product:product}) %>
+        <%- include("./_buy", {product:product}) %>
+      </div>
     </div>
   </article>
 </li>
