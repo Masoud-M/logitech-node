@@ -1,6 +1,6 @@
 # logitech-clone
 
-npm i
+npm install
 npm start
 
 localhost:8080
