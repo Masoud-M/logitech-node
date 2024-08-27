@@ -1,70 +1,13 @@
-<article class="product-card" aria-label="<%=product.name%>">
-  <picture class="product-image" aria-hidden="true">
-    <a href="/<%=product._id%>"
-      ><img
-        aria-hidden="true"
-        width="224"
-        src="<%= product.thumbnail_url %>"
-        alt="<%=product.name%> image"
-    /></a>
-  </picture>
-
-  <% if (product.colors.length > 0) { %>
-  <ul class="options" aria-label="Color options">
-    <% product.colors.forEach( color => { %>
-    <li>
-      <input
-        id="<%=product._id%>"
-        aria-label="<%=color  %>"
-        class="<%=color %>"
-        type="radio"
-        name="color"
-        value="<%=color %>"
-      />
-    </li>
-    <% }) %>
-  </ul>
-  <% } %>
-
-  <div role="text" class="info" aria-label="Product information">
-    <% if (product.series) { %>
-    <p aria-label="Product category" class="category"><%=product.series%></p>
+<li aria-label="<%=product.name%>">
+  <article class="product-card" aria-label="<%=product.name%>">
+    <%- include("./_image", {product:product}) %>
+    <% if (product.colors.length > 0) { %>
+    <%- include("./_colors", {product:product}) %>
     <% } %>
-    <a class="product-link" href="link to the product">
-      <h1 aria-label="link to the product" class="title" id="<%=product._id%>">
-        <%=product.name%>
-      </h1>
-    </a>
-  </div>
-
-  <div role="text" class="price-wrapper" aria-label="Product price">
-    <div class="price">
-      <!-- is on sale -->
-      <% if (product.on_sale) { const newPrice = product.price -
-      product.discount; const discountPercentage = ((product.discount /
-      product.price) * 100).toFixed(2); %>
-      <span class="sr-only">
-        This item is on sale, the old price was $<%= product.price %> and the
-        new price is $<%= newPrice %>, you save <%= discountPercentage %>%.
-      </span>
-
-      <div class="price-details">
-        <span aria-hidden="true" class="updated">$<%= newPrice %></span>
-        <span aria-hidden="true" class="standard">$<%= product.price %> </span>
-      </div>
-      <span aria-hidden="true" class="type on-sale">SALE</span>
-      <% } %>
+    <%- include("./_info", {product:product}) %>
+    <div class="two-columns">
+      <%- include("./_price", {product:product}) %>
+      <%- include("./_buy", {product:product}) %>
     </div>
-
-    <% if (product.on_sale) { const newPrice = product.price - product.discount;
-    const discountPercentage = ((product.discount / product.price) *
-    100).toFixed(2); %>
-    <p aria-hidden="true" class="discount">
-      You'll save <%= discountPercentage %>%
-    </p>
-    <% } if (!product.on_sale) { %>
-    <span class="sr-only"> This item is listed for $<%=product.price %> </span>
-    <span aria-hidden="true" class="updated">$<%= product.price %></span>
-    <% } %>
-  </div>
-</article>
+  </article>
+</li>

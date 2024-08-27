@@ -1,0 +1,7 @@
+<ul class="options" aria-label="Color options">
+  <% product.colors.forEach( color => { %>
+  <li>
+    <input id="<%=product._id%>" aria-label="<%=color  %>" class="<%=color %>" type="radio" name="color" value="<%=color %>" />
+  </li>
+  <% }) %>
+</ul>

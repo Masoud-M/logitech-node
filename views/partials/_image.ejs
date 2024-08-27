@@ -1,0 +1,11 @@
+<% const newPrice = product.price - product.discount; const discountPercentage =
+((product.discount / product.price) * 100).toFixed(); %>
+
+
+<div class="image-container" aria-hidden="true">
+  <% if (product.on_sale) { %> <%- include('./_badge', { discountPercentage:
+    discountPercentage }) %> <% } %>
+  <picture class="product-image" aria-hidden="true">
+    <a href="/<%=product._id%>"><img aria-hidden="true" width="224" src="<%= product.thumbnail_url %>" alt="<%=product.name%> image" /></a>
+  </picture>
+</div>

@@ -1,0 +1,10 @@
+<div role="text" class="info" aria-label="Product information">
+  <% if (product.series) { %>
+  <p aria-label="Product category" class="category"><%=product.series%></p>
+  <% } %>
+  <a class="product-link" href="link to the product">
+    <h1 aria-label="link to the product" class="title" id="<%=product._id%>">
+      <%=product.name%>
+    </h1>
+  </a>
+</div>

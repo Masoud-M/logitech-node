@@ -1,0 +1,26 @@
+<% const newPrice = product.price - product.discount; const discountPercentage =
+((product.discount / product.price) * 100).toFixed(); %>
+
+
+<div role="text" class="price-wrapper" aria-label="Product price">
+  <div class="price">
+    <!-- is on sale -->
+    <% if (product.on_sale) { %>
+
+    <div class="price-details">
+      <span aria-hidden="true" class="updated">$<%= newPrice %></span>
+      <span aria-hidden="true" class="standard">$<%= product.price %>
+      </span>
+    </div>
+
+    <% } %>
+  </div>
+
+  <% if (product.on_sale) { %>
+  <% } if (!product.on_sale) { %>
+  <span class="sr-only">
+    This item is listed for $<%=product.price %>
+  </span>
+  <span aria-hidden="true" class="updated">$<%= product.price %></span>
+  <% } %>
+</div>
