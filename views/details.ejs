@@ -1,12 +1,39 @@
 <html lang="en">
-  <%- include("./partials/head.ejs") %>
+<%- include("./partials/head.ejs") %>
 
-  <body>
-    <div class="details content">
-      <h2><%= products.name %></h2>
-      <div class="content">
-        <p><%= products.price %></p>
-      </div>
-    </div>
-  </body>
+<body>
+  <main>
+    <section class="container" aria-label="Product info">
+      <article>
+        <div class="grid-layout">
+          <div class="product-image-wrapper">
+            <div class="header">
+              / <%= product.category %> / <%= product.name %>
+            </div>
+
+            <div class="product-info-mobile">
+              <%- include("./partials/_product-info", {product}) %>
+            </div>
+
+            <%- include("./partials/_product-images", {product}) %>
+          </div>
+
+          <div class="product-info-warpper">
+            <div class="produc-info-desktop">
+              <%- include("./partials/_product-info", {product}) %>
+            </div>
+
+            <% if (product.colors.length > 0) { %>
+            <%- include("./partials/_colors", {product}) %>
+            <% } %>
+
+            <button class="add-to-cart-btn">ADD TO CART</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+</body>
+
 </html>

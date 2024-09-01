@@ -47,7 +47,7 @@ app.get("/:id", (req, res) => {
 
   Product.findById(id)
     .then((result) => {
-      res.render("details", { products: result, title: "Product Details" });
+      res.render("details", { product: result, title: "Product Details" });
     })
     .catch((err) => {
       console.log(err);
