@@ -1,4 +1,4 @@
-# logitech-clone
+## logitech-clone
 
 npm install
 npm start
