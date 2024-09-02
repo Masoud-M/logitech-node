@@ -1,18 +1,48 @@
-<h3>
-  <%= product.series %>
-</h3>
-<h1>
-  <%= product.name %>
-</h1>
-<p><%= product.description %></p>
-<div>
-  <span>
-    <%= product.reviews %>
-  </span>
-  <span>
-    <%= product.rating %>
-  </span>
-</div>
-<div>
-  $99.99
+<% const newPrice = product.price - product.discount; const discountPercentage =
+((product.discount / product.price) * 100).toFixed(); %>
+
+
+
+<div class="details">
+
+  <% if (product.series) {%> <a class="category-link" href="/">
+    <h2>
+      <%= product.series %>
+    </h2>
+  </a> <% } %>
+
+  <h1>
+    <%= product.name %>
+  </h1>
+
+  <p><%= product.description %></p>
+
+  <div class="reviews">
+    <div class="stars" style="--rating: <%= product.rating %>;" aria-label="Rating of this product is <%= product.rating %> out of 5."></div>
+    <a href="/">
+      <%= product.reviews %> Review<% if (product.reviews > 1) { %>s<% } %>
+    </a>
+  </div>
+
+  <div role="text" class="pricing" aria-label="Product price">
+    <% if (product.on_sale) { %>
+    <span class="sr-only">
+      This item is listed for $<%=newPrice %>
+    </span>
+    <div class="on-sale-pricing">
+      <span aria-hidden="true" class="updated">$<%= newPrice %></span>
+      <span aria-hidden="true" class="standard">$<%= product.price %>
+      </span>
+      <span class="sale-badge">
+        SALE
+      </span>
+    </div>
+    <% } else { %>
+    <span class="sr-only">
+      This item is listed for $<%=product.price %>
+    </span>
+    <span aria-hidden="true" class="updated">$<%= product.price %></span>
+    <% } %>
+  </div>
+
 </div>

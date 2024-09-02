@@ -3,13 +3,20 @@
 
 <body>
   <main>
-    <section class="container" aria-label="Product info">
-      <article>
+    <section class="product-info" aria-label="Product info">
+      <article class="product-container">
         <div class="grid-layout">
           <div class="product-image-wrapper">
-            <div class="header">
-              / <%= product.category %> / <%= product.name %>
-            </div>
+            <ol class="product-category">
+              <li>
+                <span>/</span>
+                <h3><%= product.category %></h3>
+              </li>
+              <li>
+                <span>/</span>
+                <h3><%= product.name %></h3>
+              </li>
+            </ol>
 
             <div class="product-info-mobile">
               <%- include("./partials/_product-info", {product}) %>
@@ -18,14 +25,13 @@
             <%- include("./partials/_product-images", {product}) %>
           </div>
 
-          <div class="product-info-warpper">
-            <div class="produc-info-desktop">
+          <div class="product-info-wrapper">
+            <div class="product-info-desktop">
               <%- include("./partials/_product-info", {product}) %>
             </div>
 
-            <% if (product.colors.length > 0) { %>
-            <%- include("./partials/_colors", {product}) %>
-            <% } %>
+            <% if (product.colors.length > 0) { %> <%-
+              include("./partials/_colors", {product}) %> <% } %>
 
             <button class="add-to-cart-btn">ADD TO CART</button>
           </div>
@@ -33,7 +39,6 @@
       </article>
     </section>
   </main>
-
 </body>
 
 </html>

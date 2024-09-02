@@ -3,7 +3,7 @@
 
 
 <div class="image-container" aria-hidden="true">
-  <% if (product.on_sale) { %> <%- include('./_badge', { discountPercentage:
+  <% if (product.on_sale) { %> <%- include('./_badge', { 
     discountPercentage }) %> <% } %>
   <picture class="product-image" aria-hidden="true">
     <a href="/<%=product._id%>"><img aria-hidden="true" width="224" src="<%= product.thumbnail_url %>" alt="<%=product.name%> image" /></a>
