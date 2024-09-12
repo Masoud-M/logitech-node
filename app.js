@@ -42,12 +42,13 @@ app.get("/", (req, res) => {
     });
 });
 
-app.get("/:id", (req, res) => {
-  const id = req.params.id;
+app.get("/products/:productId/:slugTitle", (req, res) => {
+  const productId = req.params.productId;
+  const slugTitle = req.params.slugTitle;
 
-  Product.findById(id)
+  Product.findById(productId)
     .then((result) => {
-      res.render("details", { product: result, title: "Product Details" });
+      res.render("details", { product: result, title: slugTitle });
     })
     .catch((err) => {
       console.log(err);
